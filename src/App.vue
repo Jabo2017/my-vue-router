@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <router-link to="/">首页</router-link>
+    <router-link to="/about">关于我们</router-link>
+    <router-link to="/user/Jabo">大名</router-link>
+    <router-link to="/user/Jabo?age=26">姓名年龄</router-link>
     <router-view/>
   </div>
 </template>

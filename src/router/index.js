@@ -21,14 +21,16 @@ export default new Router({
       name: 'About',
       component: About,
       children:[
-      	{ path: '/about/child1', component: Child1 }
+      	{ path: 'child1', component: Child1 }
       ]
     },
     {
       path: '/user/:name',
       name: 'User',
       component: User,
-      children:[]
+      children:[
+      	{path: 'more', component: More}
+      ]
     },
 
   ]

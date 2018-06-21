@@ -25,6 +25,7 @@ export default new Router({
       ]
     },
     {
+      //只有动态路由可以做到分页的效果
       path: '/user/:name',
       name: 'User',
       component: User,

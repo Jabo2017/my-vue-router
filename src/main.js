@@ -6,6 +6,8 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+var isMeta = false;
+
 //全局钩子函数 :跳转前
 router.beforeEach((to,from,next)=>{
 	//console.log(to);
@@ -16,8 +18,7 @@ router.beforeEach((to,from,next)=>{
 	//next()
 	//next('/about')
 	//next({path:'/about'})
-	
-	var isMeta = false;
+
 	console.log(to.path)
 	/*
 	//存在问题： 子路由没过滤
@@ -43,8 +44,13 @@ router.beforeEach((to,from,next)=>{
 	if(!isMeta && to.matched.some(function(item){
 		return item.meta.isMeta;
 	})){
-		alert("请先meta开启");
-		next('/');
+		let result = confirm("是否开启meta!")
+		if(result){
+			next();
+		}else{
+			next('/');
+		}
+		
 	}else{
 		next();
 	}

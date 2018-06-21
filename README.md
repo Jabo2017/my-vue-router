@@ -44,17 +44,19 @@ beforeEnter:(to,from,next) => {next()}
 
 ## 元数据
 > main.js 中
-
+```
 to.matched.some(function(item){
 	return item.meta.isMeta;
 })
+```
 
 > index.js
-
+```
 //元数据配置
 meta:{
     isMeta:true
 }
+```
 
 
 

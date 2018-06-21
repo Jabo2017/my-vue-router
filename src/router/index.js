@@ -5,6 +5,7 @@ import About from '../components/About'
 import User from '../components/User'
 import Child1 from '../components/Child1'
 import More from '../components/More'
+import Meta from '../components/Meta'
 
 Vue.use(Router)
 
@@ -31,8 +32,37 @@ export default new Router({
       component: User,
       children:[
       	{path: 'more', component: More}
-      ]
+      ],
+      //局部钩子函数
+      beforeEnter:(to,from,next) => {
+        next()
+      }
     },
+    {
+      path:'/forum',
+      name:'Forum',
+      //命名视图配置
+      components:{
+          //视图名：组件  
+          content:About,
+          nav:User
+      }
+
+    },
+    {
+      path:'/meta',
+      name:'Meta',
+      component:Meta,
+      //元数据配置
+      meta:{
+        isMeta:true
+      },
+      children:[
+        {path:'child', component:More,beforeEnter:function(to,from,next){next();console.log(to);}}
+      ],
+
+
+    }
 
   ]
 })

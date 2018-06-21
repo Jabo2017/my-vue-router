@@ -1,17 +1,19 @@
 <template>
-  <div class="child1">
+  <div class="meta">
     {{pageName}}
+    <router-link to="child" append>meta 子路由</router-link>
+    <router-view />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Child1',
+  name: 'Meta',
   data () {
     return {
-      pageName:"子页面1"
+      pageName:"元数据"
     }
-  },
+  }
 }
 </script>
 

@@ -17,3 +17,51 @@
 
 ## 模拟跳转 
 > 在Vue实例内部，可以通过$route访问路由实例   this.$router.push("/");
+
+
+## 钩子函数
+
+> ## 全局 -> main.js
+router.beforeEach((to,from,next)=>{next()})
+
+> ## 局部 -> router/index.js
+beforeEnter:(to,from,next) => {next()}
+
+
+## 命名视图
+> \<router-view name="content"/\>
+
+	{
+	    path:'/forum',
+	    name:'Forum',
+	    //命名视图配置
+	    components:{
+	        //视图名：组件  
+	        content:About,
+	        nav:User
+	    }
+	}
+
+## 元数据
+> main.js 中
+
+to.matched.some(function(item){
+	return item.meta.isMeta;
+})
+
+> index.js
+
+//元数据配置
+meta:{
+    isMeta:true
+}
+
+
+
+
+# 参考
+1、[vue-router路由讲解](https://www.cnblogs.com/ye-hcj/p/7147697.html)
+
+2、[vue路由详解](https://www.cnblogs.com/guangixn/p/7895809.html)
+
+3、[Vue.js路由组件vue-router使用方法详解](https://www.jb51.net/article/98902.htm)

@@ -5,11 +5,18 @@
       <router-link class="linkBtn" target="_blank" to="/about" >关于我们</router-link>
       <router-link class="linkBtn" to="/user/Jabo">大名</router-link>
       <router-link class="linkBtn" to="/user/Jabo?age=26">姓名年龄</router-link>
-      <router-link class="linkBtn" :to="{path:'/user/Jabo',query:{age:18,gender:'male'}}">推荐方式:感觉很装逼</router-link>
+      <router-link class="linkBtn" :to="{path:'/user/Jabo',query:{age:18,gender:'male'}}">
+      推荐方式:感觉很装逼</router-link>
+      <router-link class="linkBtn" :to="{path:'/about',query:{id:aId}}">动态参数</router-link>
+      <router-link class="linkBtn" to="/forum">命名视图</router-link>
+
+      <router-link class="linkBtn" to="/meta">元数据meta</router-link> 
       <button @click="ms">按钮模拟跳转</button>
     </div>
     <div class="content">
       <router-view/>
+      <router-view name="nav"/>
+      <router-view name="content"/>
     </div>
   </div>
 </template>
@@ -18,6 +25,11 @@
 
 export default {
   name: 'App',
+  data(){
+    return {
+      aId:10
+    }
+  },
   methods:{
     ms(){
       var _this = this;

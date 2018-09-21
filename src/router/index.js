@@ -35,7 +35,12 @@ export default new Router({
       ],
       //局部钩子函数
       beforeEnter:(to,from,next) => {
-        next()
+        if(!to.params.name){
+          next("/about")
+        }else{
+          next()
+        }
+        
       }
     },
     {
